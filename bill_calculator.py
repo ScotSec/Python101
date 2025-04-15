@@ -7,4 +7,4 @@ tip_value = (bill / 100) * tip
 total_cost = round(bill + tip_value, 2)
 cost_each = round(total_cost / people, 2)
 print(f"The total bill is: £{total_cost}")
-print(f"The cost per person is: £{cost_each}")
+print(f"The cost per person is: £{cost_each:.2f}")
