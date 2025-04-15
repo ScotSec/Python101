@@ -50,7 +50,7 @@ if room_one_complete == True and room_two_complete == True:
         exit()
     else:
         print("---")
-        print("You climb up the staircase until you read the roof, There is a rickety rope bridge leading to another tower.\nThinking quickly you sprint across, hearing the goose close behind.\nAs you reach the other tower you hear the ropes snap behind you.")
+        print("You climb up the staircase until you reach the roof, There is a rickety rope bridge leading to another tower.\nThinking quickly you sprint across, hearing the goose close behind.\nAs you reach the other tower you hear the ropes snap behind you.")
         print("You hear an echoing honk of rage as the goose falls out of sight.")
         room_three_complete = True
 
