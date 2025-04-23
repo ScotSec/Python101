@@ -28,21 +28,18 @@ def add_card():
 def check_user_condition():
     calculate_user_cards(cards_amount=1)
     if sum(user_cards) > 21 and 11 not in user_cards:
-        print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nYou lose!")
-        run_application()
+        return print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nYou lose!")
     elif sum(user_cards) > 21 and 11 in user_cards:
         print(f"Your cards are {user_cards} and you went over 21!\n---Converting ace to the value of 1---")
         if 11 in user_cards:
             index = user_cards.index(11)
             user_cards[index] = 1
     elif sum(user_cards) == 21:
-        print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nYou win!")
-        run_application()
+        return print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nYou win!")
 
 def check_computer_condition():
     if sum(computer_cards) > 21 and 11 not in computer_cards:
-        print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nYou win!")
-        run_application()
+        return print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nYou win!")
     elif sum(computer_cards) > 21 and 11 in computer_cards:
         print(f"The computers cards are {computer_cards} and it went over 21!\n---Converting ace to the value of 1---")
         if 11 in computer_cards:
@@ -51,26 +48,20 @@ def check_computer_condition():
     elif sum(computer_cards) < 17:
         calculate_computer_cards(cards_amount=1)
     elif sum(computer_cards) == 21:
-        print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nYou lose!")
-        run_application()
+        return print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nYou lose!")
 
 def check_win_condition():
     global user_continue
     if sum(user_cards) > sum(computer_cards) and sum(user_cards) < 21:
-        print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nYou win!")
-        run_application()
+        return print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nYou win!")
     elif sum(computer_cards) > sum(user_cards) and sum(computer_cards) < 21:
-        print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nYou lose!")
-        run_application()
+        return print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nYou lose!")
     elif sum(user_cards) == sum(computer_cards):
-        print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nIts a draw!")
-        run_application()
+        return print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nIts a draw!")
     elif sum(user_cards) < 21 and sum(computer_cards) > 21:
-        print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nYou win!")
-        run_application()
+        return print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nYou win!")
     elif sum(user_cards) > 21 and sum(computer_cards) > 21 :
-        print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nIts a draw!")
-        run_application()
+        return print(f"\nYour cards are {user_cards}\nYour score is {sum(user_cards)}\nThe The computers hand was {computer_cards}\nIts score was {sum(computer_cards)}\nIts a draw!")
     elif sum(computer_cards) < 17:
         check_computer_condition()
     user_continue = True
@@ -81,7 +72,7 @@ def run_application():
     global user_cards, computer_cards, user_continue, user_add_card
     user_cards = []
     computer_cards = []
-    add_user_card = ""
+    user_add_card = ""
 
     start = input("\nDo you want to play a game of Blackjack? Type 'y' or 'n': ")
     if start.lower() == "y":
@@ -92,7 +83,6 @@ def run_application():
     calculate_computer_cards(cards_amount=2)
     print(f"Your cards are: {user_cards}\nYour total value is: {sum(user_cards)}")
     print(f"The computers card is: {computer_cards[0]}")
-    user_add_card = ""
 
     while True:
         global user_continue
